@@ -1,0 +1,19 @@
+/* Add this in your CSS file */
+.category-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px; 
+}
+
+.category-box {
+    text-align: center; 
+    padding: 5px; 
+    border: 1px solid #ccc; 
+}
+
+.category-box img {
+    width: 100%; 
+    height: auto; 
+    object-fit: cover;
+}
