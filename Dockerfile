@@ -9,6 +9,9 @@ ARG FLASK_ENV
 ARG DATABASE_URL
 ARG SCHEMA
 ARG SECRET_KEY
+ARG S3_KEY
+ARG S3_SECRET
+ARG S3_BUCKET
 
 WORKDIR /var/www
 
@@ -20,5 +23,5 @@ RUN pip install psycopg2
 COPY . .
 
 RUN flask db upgrade
-RUN flask seed all
+RUN flask fire all
 CMD gunicorn app:app
