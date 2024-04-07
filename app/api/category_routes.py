@@ -8,27 +8,27 @@ from datetime import date
 category_routes = Blueprint("category",__name__)
 
 
-
-@category_routes.route('/<int:id>')
-def get_categoryid(id):
-
-    """get all categories list"""
-    category= Category.query.get(id)
-
-    if not category:
-        return jsonify({"error:" "No categories dound"}),404
+@category_routes.route("/")
+def get_category():
+    """get all category list """
     
-    category_data = {"id": category.id, "user_id": category.user_id, "name": category.name,
-                     "category_image": category.category_image}
-    return jsonify(category_data)
+    categories = Category.query.all()
+
+    if not categories:
+        return jsonify({"error": "No categories found"}),404
     
+    category_list = [{"id": category.id, "user_id": category.user_id, "name": category.name,
+                       "category_image": category.category_image} for category in categories]
+    
+    return jsonify(category_list)
+
+
+
     
 
-@category_routes.route('/new-category')
-@login_required
+@category_routes.route('/new', methods = ["POST"])
 def create_category():
-    
-    """create category with image and name"""
+    """create a category with name and image"""
     form = CategoryForm()
 
 
@@ -37,7 +37,8 @@ def create_category():
     
 
     if form.validate_on_submit():
-        category_image = form.data['image']
+        category_image = form.data['category_image']
+        print('category image returned from react form',category_image)
         category_image.filename = get_unique_filename(category_image.filename)
         upload = upload_file_to_s3(category_image)
         print (upload)
@@ -49,14 +50,13 @@ def create_category():
             user_id = current_user.id,
             name = form.data['name'],
             category_image = upload['url'],
-            created_at = date.today()
         )
         
         db.session.add(new_category)
         db.session.commit()
-
+        print(new_category,"this is new category in create api============")
         return jsonify({"id": new_category.id, "user_id": new_category.user_id,
-                        "name": new_category.name, "image": new_category.image}), 201
+                        "name": new_category.name, "category_image": new_category.category_image}), 201
             
     else:
       print(form.errors)

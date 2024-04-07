@@ -3,6 +3,7 @@ import LoginFormPage from '../components/LoginFormPage';
 import SignupFormPage from '../components/SignupFormPage';
 import Layout from './Layout';
 import GetCategory from '../components/GetCategory';
+import CreateCategory from '../components/CreateCategory/CreateCategory';
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ export const router = createBrowserRouter([
       {
         path: "category",
         element: <GetCategory />
+      },
+      {
+        path: "category/new",
+        element: <CreateCategory />
       }
     ],
   },
