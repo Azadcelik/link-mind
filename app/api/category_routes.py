@@ -64,3 +64,38 @@ def create_category():
 
 
 
+@category_routes.route('/update/<int:id>', methods = ["PUT"])
+@login_required
+def update_category(id):
+    """update an existing category"""
+
+    category = Category.query.get(id)
+    form = CategoryForm()
+    if not category:
+        return jsonify({'error': 'Category not found'}), 404
+
+    form["csrf_token"].data = request.cookies["csrf_token"]
+
+    if form.validate_on_submit():
+        if 'category_image' in form.data and form.data['category_image']:
+            image = form.data['category_image']
+            image.filename = get_unique_filename(image.filename)
+            upload = upload_file_to_s3(image)
+            
+            if not 'url' in upload:
+                return upload
+            
+            remove_file_from_s3(category.category_image)
+
+            category.category_image = upload['url']
+        
+        category.name = form.data['name']
+
+        db.session.commit()
+        return jsonify({"id": category.id, "user_id": current_user.id, "name": category.name, "category_image": category.category_image})
+    
+    else:
+        print(form.errors)
+        return form.errors
+
+        
