@@ -18,10 +18,10 @@
   
   .form-group input[type="text"],
   .form-group input[type="file"] {
-    padding: 12px; /* Increased padding for larger input fields */
+    padding: 12px; 
     border: 1px solid #ccc;
-    border-radius: 6px; /* Slightly more rounded input fields */
-    font-size: 16px; /* Larger font size */
+    border-radius: 6px; 
+    font-size: 16px;
   }
   
   .submit-button {

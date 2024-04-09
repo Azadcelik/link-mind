@@ -1,0 +1,51 @@
+.delete-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background: #f3f3f3;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .modal-content h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .yes-button, .no-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .yes-button {
+    background-color: #ff4d4d; 
+    color: white;
+  }
+  
+  .no-button {
+    background-color: #4CAF50; 
+    color: white;
+  }
+  
+  .yes-button:hover {
+    background-color: #ff3333;
+  }
+  
+  .no-button:hover {
+    background-color: #45a049;
+  }
+  
