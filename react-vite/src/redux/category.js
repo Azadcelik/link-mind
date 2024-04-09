@@ -2,7 +2,7 @@
 
 const GET_CATEGORY = 'getCategory/link-mind'
 const CREATE_CATEGORY = 'createCategory/link-mind'
-
+const UPDATE_CATEGORY = 'updateCategory/link-mind'
 
 
 
@@ -76,6 +76,41 @@ export function createCategoryThunk (createCategoryData) {
 
 
 
+
+const updateCategoryAction = (updateData) => { 
+    return {
+        type : UPDATE_CATEGORY,
+        payload: updateData
+    }
+}
+
+
+
+export function updateCategoryThunk (updateData,id) { 
+    return async function (dispatch) { 
+        try{
+            const resp = await fetch(`/api/category/update/${id}`,{
+                method: "PUT",
+                body: updateData
+            })
+
+            if (resp.ok){ 
+                const data = await resp.json()
+                await dispatch(updateCategoryAction(data))
+            }
+            else {
+                const data = await resp.json()
+                console.log('this is error in updateThun', error)
+                return data.error
+            }
+
+        }catch(error) { 
+            console.log(error)
+            return error
+        }
+    }
+}
+
 const categoryReducer = (initialState = {},action) => { 
     switch(action.type) {
         case GET_CATEGORY: {
@@ -91,6 +126,10 @@ const categoryReducer = (initialState = {},action) => {
         case CREATE_CATEGORY: {
             return {...initialState, [action.payload.id] : action.payload}
         }
+
+        case UPDATE_CATEGORY:  { 
+            return {...initialState, [action.payload.id] : action.payload}
+        } 
 
         default: {
             return initialState
