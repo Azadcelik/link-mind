@@ -2,14 +2,15 @@ import { useSelector,useDispatch } from "react-redux"
 import { categoryThunk, updateCategoryThunk } from "../../redux/category"
 import { useModal } from "../../context/Modal"
 import { useState,useEffect } from "react"
-
+import './UpdateCategory.css'
+import DeleteCategory from "../DeleteCategory"
 
 const UpdateCategory = ({categId}) => { 
 
     const dispatch = useDispatch()
     let category = useSelector( state => state.categories[categId])
 
-    const {closeModal} = useModal()
+    const {closeModal,setModalContent} = useModal()
 
     const [name,setName] = useState(category.name)
     const [image,setImage] = useState(null)
@@ -45,9 +46,15 @@ const UpdateCategory = ({categId}) => {
         closeModal()
     }
 
+    const handleDelete = (categId) => { 
+        setModalContent(<DeleteCategory categId={categId} />)
+    }
+
+
 
     return (
         <form encType="multipart/form-data" onSubmit={handleFormData} className="upload-form">
+            <i className="fa-solid fa-trash" onClick={() => handleDelete(categId)}></i>
             <div className="form-group">
                 <label htmlFor="image-input">Image</label>
                 {hasSubmitted && validationErrors.image && (
