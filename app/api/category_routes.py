@@ -99,3 +99,17 @@ def update_category(id):
         return form.errors
 
         
+
+@category_routes.route('/delete/<int:id>', methods = ["DELETE"])
+@login_required
+def delete_category(id):
+    category = Category.query.get(id)
+
+    if not category:
+        return jsonify({'error': 'Category not found'}), 404
+
+    remove_file_from_s3(category.category_image)
+    print("succesfully deleted")
+    db.session.delete(category)
+    db.session.commit()
+    return jsonify({"message": "succesfully deleted"})

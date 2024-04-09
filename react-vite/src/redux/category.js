@@ -3,7 +3,7 @@
 const GET_CATEGORY = 'getCategory/link-mind'
 const CREATE_CATEGORY = 'createCategory/link-mind'
 const UPDATE_CATEGORY = 'updateCategory/link-mind'
-
+const DELETE_CATEGORY = 'deleteCategory/link-mind'
 
 
 const categoryAction = (categoryData) => {
@@ -100,7 +100,7 @@ export function updateCategoryThunk (updateData,id) {
             }
             else {
                 const data = await resp.json()
-                console.log('this is error in updateThun', error)
+                console.log('this is error in updateThun', data.error)
                 return data.error
             }
 
@@ -108,6 +108,37 @@ export function updateCategoryThunk (updateData,id) {
             console.log(error)
             return error
         }
+    }
+}
+
+const deleteCategoryAction = (categId) => { 
+    return { 
+        type: DELETE_CATEGORY,
+        payload: categId
+    }
+}
+
+export function deleteCategoryThunk (categId) { 
+    return async function(dispatch) { 
+        try {
+            const response = await fetch(`/api/category/delete/${categId}`,{
+                method: "DELETE"
+            })
+            if (response.ok) { 
+                await dispatch(deleteCategoryAction(categId))
+            }
+            else {
+                const data = await response.json()
+                console.log(data.error)
+                return data.error
+            }
+
+
+        }catch (error) { 
+            console.log(error)
+            return error
+        }
+
     }
 }
 
@@ -131,6 +162,11 @@ const categoryReducer = (initialState = {},action) => {
             return {...initialState, [action.payload.id] : action.payload}
         } 
 
+        case DELETE_CATEGORY: {
+            const newState = {...initialState}
+            delete newState[action.payload]
+            return newState
+        }
         default: {
             return initialState
         }
