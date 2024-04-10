@@ -34,7 +34,7 @@ def upgrade():
     # ### end Alembic commands ###
 
     if environment == "production":
-        op.execute(f"ALTER TABLE users SET SCHEMA {SCHEMA};")
+        op.execute(f"ALTER TABLE elements SET SCHEMA {SCHEMA};")
 
 
 def downgrade():
