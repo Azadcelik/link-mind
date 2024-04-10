@@ -16,4 +16,5 @@ class Category(db.Model):
     category_image = db.Column(db.String())
 
     user = db.relationship("User", back_populates="categories")
+    elements = db.relationship('Element', back_populates = "category", cascade = "all,delete-orphan")
 
