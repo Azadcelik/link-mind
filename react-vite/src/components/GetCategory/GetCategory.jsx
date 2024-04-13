@@ -7,6 +7,8 @@ import './GetCategory.css'
 import CreateCategory from '../CreateCategory/CreateCategory'
 import { useModal } from '../../context/Modal'
 import UpdateCategory from '../UpdateCategory'
+import GetElements from '../GetElements'
+import { useNavigate } from 'react-router-dom'
 
 
 const GetCategory = () => {
@@ -15,6 +17,7 @@ const GetCategory = () => {
     const [timer,setTimer] = useState(null)
 
 const dispatch = useDispatch()
+const navigate = useNavigate()
 
 const categories = useSelector(state => (state.categories))
 console.log('categories in get use selector',categories)
@@ -52,12 +55,15 @@ const handleMouseUp = () => {
     clearTimeout(timer)
 }
 
+const  navigateCategory = (categId) =>  { 
+    navigate(`${categId}`)
+}
 
 return (
     <div className="category-container">
         <button className="add-category-btn" onClick={displayModal}>+</button>
         {category.map(categ => (
-            <div className="category-box" key={categ.id} onMouseDown={() => handleMouseDown(categ.id)} onMouseUp={handleMouseUp}>
+            <div className="category-box" key={categ.id} onMouseDown={() => handleMouseDown(categ.id)} onMouseUp={handleMouseUp} onClick={() => navigateCategory(categ.id)}>
                 <img src={categ.category_image} alt={categ.name} onClick={() => readAloud(categ.name)} />
                 <p>{categ.name}</p>
             </div>
