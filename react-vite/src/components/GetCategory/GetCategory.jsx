@@ -7,7 +7,6 @@ import './GetCategory.css'
 import CreateCategory from '../CreateCategory/CreateCategory'
 import { useModal } from '../../context/Modal'
 import UpdateCategory from '../UpdateCategory'
-import GetElements from '../GetElements'
 import { useNavigate } from 'react-router-dom'
 
 
