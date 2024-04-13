@@ -23,8 +23,9 @@ def get_elements(id):
     return jsonify(elements_list)
 
 
-@element_routes.route('/new, methods = ["POST"]')
-def create_element():
+@element_routes.route('/new/<int:id>', methods = ["POST"])
+@login_required
+def create_element(id):
     """create a element with name and image"""
     form = ElementForm()
 
@@ -44,6 +45,7 @@ def create_element():
             return upload
         
         new_element = Element(
+            category_id = id,
             name = form.data['name'],
             element_image = upload['url'],
             created_at = date.today()
