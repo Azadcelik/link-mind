@@ -1,4 +1,4 @@
-from flask import Blueprint,request,jsonify,
+from flask import Blueprint,request,jsonify
 from ..models import Element,db
 from .aws_helper import get_unique_filename, upload_file_to_s3, remove_file_from_s3
 from datetime import date
@@ -8,16 +8,16 @@ from flask_login import login_required, current_user
 element_routes = Blueprint('element',__name__)
 
 
-@element_routes.route("/")
-def get_elements():
+@element_routes.route("/<int:id>")
+def get_elements(id):
     """get all elements list """
     
-    elements = Element.query.all()
+    elements = Element.query.filter_by(category_id = id).all()
 
     if not elements:
         return jsonify({"error": "No elements found"}),404
     
-    elements_list = [{"id": element.id,"name": element.name,
+    elements_list = [{"id": element.id,"name": element.name, "category_id": element.category_id,
                        "element_image": element.element_image} for element in elements]
     
     return jsonify(elements_list)
