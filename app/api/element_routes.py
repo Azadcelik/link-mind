@@ -90,7 +90,6 @@ def update_element(id):
         element.name = form.data['name']
 
         db.session.commit()
-        print({"id": element.id, "category_id": id, "name": element.name, "element_image": element.element_image})
         return jsonify({"id": element.id, "category_id": id, "name": element.name, "element_image": element.element_image})
     
     else:

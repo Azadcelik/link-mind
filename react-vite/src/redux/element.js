@@ -1,7 +1,7 @@
 const GET_ELEMENT = 'getElement/link-mind'
 const CREATE_ELEMENT = 'createElement/link-mind'
 const UPDATE_ELEMENT = 'updateElement/link-mind'
-
+const DELETE_ELEMENT = 'deleteElement/link-mind'
 
 const elementAction = (elementData) => { 
     return {
@@ -97,6 +97,38 @@ export function updateElementThunk (updatedElement,elementId) {
 }
 
 
+const deleteElementAction = (elemendId) => { 
+ 
+    return {
+        type: DELETE_ELEMENT,
+        payload : elemendId
+        
+    }
+}
+
+export function deleteElementThunk (elementId) {
+    return async function(dispatch) { 
+        try{ 
+            const response = await fetch(`/api/element/delete/${elementId}`, {
+                method : "DELETE"
+            })
+
+            if (response.ok) { 
+                await dispatch(deleteElementAction(elementId))
+            }
+            else {
+                const data = response.json()
+                return data.error
+            }
+
+        }catch(error) { 
+            return error
+        }
+    }
+}
+
+
+
 
 const elementReducer = (initialState = {},action) => { 
     switch(action.type) { 
@@ -113,6 +145,12 @@ const elementReducer = (initialState = {},action) => {
         case UPDATE_ELEMENT : { 
             return {...initialState, [action.payload.id] :action.payload}
 
+        }
+
+        case DELETE_ELEMENT : { 
+            const newState = {...initialState}
+            delete newState[action.payload]
+            return newState
         }
 
         default : {

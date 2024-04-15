@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { elementThunk, updateElementThunk } from "../../redux/element"
 import { useModal } from "../../context/Modal"
+import DeleteElement from "../DeleteElement"
 
 
 
@@ -12,7 +13,7 @@ import { useModal } from "../../context/Modal"
 
 const UpdateElement = (props) => { 
 
-    const {closeModal} = useModal()
+    const {closeModal,setModalContent} = useModal()
     const dispatch = useDispatch()
     const element = useSelector(state => state.elements[props.elementId])
     console.log(element,'this is en alemeniakjsd')
@@ -48,11 +49,13 @@ const handleFormData = async (e) => {
     closeModal()
 }
 
-
+const handleDeleteElement = () => { 
+    setModalContent(<DeleteElement elementId={props.elementId} />)
+}
 
 return (
     <form encType="multipart/form-data" onSubmit={handleFormData} className="upload-form">
-        <i className="fa-solid fa-trash"></i>
+        <i className="fa-solid fa-trash" onClick={handleDeleteElement}></i>
         <div className="form-group">
             <label htmlFor="image-input">Image</label>
             {hasSubmitted && validationErrors.image && (
