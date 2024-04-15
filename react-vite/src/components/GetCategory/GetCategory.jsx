@@ -44,10 +44,10 @@ const displayModal = () => {
 
 const handleMouseDown = (id) => { 
 
-    const timer = setTimeout(() => {
+    const newTimer = setTimeout(() => {
     setModalContent(<UpdateCategory categId = {id} />)
     }, 1000);
-    setTimer(timer)
+    setTimer(newTimer)
 }
 
 const handleMouseUp = () => { 
