@@ -37,12 +37,13 @@ const CreateElement = ({categId}) => {
         formData.append("element_image",image)
         
         await dispatch(createElementThunk(formData,categId))
-        await dispatch(elementThunk(categId))
+        await dispatch(elementThunk())
         closeModal()
     }
 
     return (
         <form encType="multipart/form-data" onSubmit={handleFormData} className="upload-form">
+            <h1>this is element</h1>
             <div className="form-group">
                 <label htmlFor="image-input">Image</label>
                 {hasSubmitted && validationErrors.image && (
