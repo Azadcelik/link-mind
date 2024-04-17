@@ -48,6 +48,7 @@ const CreateCategory = () => {
 
     return (
         <form encType="multipart/form-data" onSubmit={handleFormData} className="upload-form">
+            <h1>this is category</h1>
             <div className="form-group">
                 <label htmlFor="image-input">Image</label>
                 {hasSubmitted && validationErrors.image && (

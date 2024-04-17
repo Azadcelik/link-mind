@@ -16,8 +16,10 @@
     "react-icons": "^5.0.1",
     "react-redux": "^8.1.1",
     "react-router-dom": "^6.15.0",
+    "react-speech-recognition": "^3.10.0",
     "redux": "^4.2.1",
-    "redux-thunk": "^2.4.2"
+    "redux-thunk": "^2.4.2",
+    "regenerator-runtime": "^0.14.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

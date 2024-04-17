@@ -8,11 +8,11 @@ from flask_login import login_required, current_user
 element_routes = Blueprint('element',__name__)
 
 
-@element_routes.route("/<int:id>")
-def get_elements(id):
+@element_routes.route("/")
+def get_elements():
     """get all elements list """
     
-    elements = Element.query.filter_by(category_id = id).all()
+    elements = Element.query.all()
 
     if not elements:
         return jsonify({"error": "No elements found"}),404

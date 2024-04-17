@@ -19,10 +19,9 @@ const elements = useSelector(state => state.elements)
 const element = Object.values(elements)
 
 
-
 useEffect(() => {
     const getElements = async () => { 
-       await dispatch(elementThunk(categId))
+       await dispatch(elementThunk())
     }
     getElements()
 },[dispatch,categId])
