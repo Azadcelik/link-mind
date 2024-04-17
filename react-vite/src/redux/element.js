@@ -10,10 +10,10 @@ const elementAction = (elementData) => {
     }
 }
 
-export function elementThunk(id) {
+export function elementThunk() {
     return async function(dispatch) { 
         try{
-        const response = await fetch(`/api/element/${id}`)
+        const response = await fetch(`/api/element/`)
         if (response.ok) { 
             const data = await response.json()
             dispatch(elementAction(data))
