@@ -1,56 +1,52 @@
-import SpeechRecognition, {useSpeechRecognition} from 'react-speech-recognition'
-import { useSelector } from 'react-redux'
-import './AudioHook.css'
-import { useState } from 'react'
-const AudioHook = () => { 
-  
-const [processedTranscript,setProcessedTranscript] = useState('')
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
+import { useSelector } from 'react-redux';
+import './AudioHook.css';
+import { useState } from 'react';
 
+const AudioHook = () => {
+    const [processedTranscript, setProcessedTranscript] = useState('');
+    const [statusColor, setStatusColor] = useState('stopped'); // Default status is 'stopped'
+    const elements = useSelector(state => state.elements);
+    const element = Object.values(elements);
 
-const elements = useSelector(state => state.elements)
-const element = Object.values(elements)
+    const { listening, transcript, resetTranscript, browserSupportsSpeechRecognition } = useSpeechRecognition();
 
-console.log('this is audiohoook',element)
-    const {listening, transcript,resetTranscript,browserSupportsSpeechRecognition} = useSpeechRecognition()
-
-        if (!browserSupportsSpeechRecognition) {
-        return <span>Browser doesn&apos;t support speech recognition.</span>;
-      }
- 
-
-      const handleStartButton = () => {
-        SpeechRecognition.startListening({continuous: true})
+    if (!browserSupportsSpeechRecognition) {
+        return <span>Browser doesn't support speech recognition.</span>;
     }
 
-    const handleStopButton = () => { 
-        SpeechRecognition.stopListening()
-        setProcessedTranscript(transcript)
-    }
+    const handleStartButton = () => {
+        SpeechRecognition.startListening({ continuous: true });
+        setStatusColor('listening');
+    };
 
+    const handleStopButton = () => {
+        SpeechRecognition.stopListening();
+        setProcessedTranscript(transcript);
+        setStatusColor('stopped');
+    };
 
-    const matchedElement = element.filter(ele => processedTranscript.split(' ').includes(ele.name))
-
-    matchedElement.sort((a,b) => { 
-        return processedTranscript.indexOf(a.name) - processedTranscript.indexOf(b.name)
-    })
-
+    const handleResetButton = () => {
+        resetTranscript();
+        setStatusColor('reset');
+    };
 
     return (
-
         <>
-        <p>Microphone: {listening ? "on" : 'off'}</p>
-        <button onClick={handleStartButton}>Start</button>
-        <button onClick={handleStopButton}>Stop</button>
-        <button onClick={resetTranscript}>Reset</button>
-        <p>{transcript}</p>
-        <div>
-        {matchedElement.map(ele => (
-            <img src = {ele.element_image} className='ele-img' key={ele.id}/>
-        ))}    
-        </div>        
+            <div className='toolbar'>
+                <div className={`status-icon ${statusColor}`}></div>
+                <button className="button" onClick={handleStartButton}>Start</button>
+                <button className="button" onClick={handleStopButton}>Stop</button>
+                <button className="button" onClick={handleResetButton}>Reset</button>
+                <p>{transcript}</p>
+            </div>
+            <div className='image-container'>
+                {element.filter(ele => processedTranscript.toLowerCase().split(' ').includes(ele.name)).map(ele => (
+                    <img src={ele.element_image} className='ele-img' key={ele.id}/>
+                ))}
+            </div>
         </>
-    )
-}
-
+    );
+};
 
 export default AudioHook;
