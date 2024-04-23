@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
 import AudioHook from "../AudioHook";
+import DisplayImage from "../DisplayImage";
 
 function Navigation() {
   return (
@@ -15,6 +16,9 @@ function Navigation() {
       <li>
         <ProfileButton />
       </li>
+      <div>
+        <DisplayImage />
+      </div>
     </ul>
   );
 }

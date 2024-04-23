@@ -49,3 +49,30 @@
 .add-element-btn:hover {
   background-color: #22a7e5; 
 }
+
+
+
+.picture { 
+    position: fixed; /* Keep it at the top */
+    top: 0; /* Align at the top */
+    left: 0; /* Align at the left edge */
+    width: 100%; /* Full width */
+    background: rgba(255, 255, 255, 0.9); /* Slight background to separate it from other elements */
+    padding: 10px; /* Padding around the image */
+    text-align: center; /* Center align the content */
+
+}
+
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background-color: white;
+  border-bottom: 1px solid gray;
+  z-index: 1000; /* Ensure it stays above other content */
+  display: flex;
+  justify-content: center;
+}
