@@ -6,19 +6,19 @@ import './GetElements.css'
 import { useModal } from "../../context/Modal"
 import CreateElement from "../CreateElement"
 import UpdateElement from "../UpdateElement"
-import DisplayImage from "../DisplayImage"
 import { EleIdContext } from "../EleId/Eleid"
+import { createImageAction } from "../../redux/elementImage"
 
 
 const GetElements = () => { 
 
-const {setElementImageId} = useContext(EleIdContext)
+
+const {elementImageId,setElementImageId} = useContext(EleIdContext)
  
 const [timer,setTimer] = useState(null)
 const dispatch = useDispatch()
 const {categId} = useParams()
 const {setModalContent} = useModal()
-const [eleId,setEleId] = useState(null)
 
 const elements = useSelector(state => state.elements)
 const element = Object.values(elements)
@@ -49,8 +49,10 @@ const handleCreateElement = () => {
     
 }
 
-const handleClick = (id) => { 
-    setElementImageId(id)
+const handleClick = async (id) => { 
+    const element = elements[id]
+    await dispatch(createImageAction(element,elementImageId))
+    setElementImageId(prev  => prev + 1)
 }
 
 

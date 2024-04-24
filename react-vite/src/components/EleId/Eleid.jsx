@@ -10,7 +10,7 @@ export const EleIdContext = createContext()
 
 export const EleIdProvider = ({children}) => { 
 
-    const [elementImageId,setElementImageId] = useState(null)
+    const [elementImageId,setElementImageId] = useState(0)
 
 
     return (
