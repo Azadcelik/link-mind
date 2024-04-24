@@ -8,11 +8,13 @@ import thunk from "redux-thunk";
 import sessionReducer from "./session";
 import categoryReducer from "./category";
 import elementReducer from "./element";
+import elementImageReducer from "./elementImage";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
   categories: categoryReducer,
-  elements : elementReducer
+  elements : elementReducer,
+  elementImage: elementImageReducer
 });
 
 let enhancer;
