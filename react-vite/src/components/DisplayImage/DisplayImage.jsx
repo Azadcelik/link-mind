@@ -2,8 +2,7 @@ import { useContext } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { EleIdContext } from "../EleId/Eleid"
 import { clearImage } from "../../redux/elementImage";
-
-
+import './DisplayImage.css'
 
 
 
@@ -22,13 +21,15 @@ const DisplayImage = () => {
     const image = useSelector(state => state.elementImage)
     const images = Object.values(image)
     return (
-      <>
+      <div className="imge-container">
         {images.map((img,index) => (
-          <img src={img.element_image} style={{ width: '20px', height: '20px' }} key={index}/> 
-          
+          <div className="imge-wrapper">
+          <img src={img.element_image}  key={index} />
+          <p>{img.name} </p>
+          </div>
         ))}
-        <h1 onClick={handleClearImage}>Clear</h1>
-      </>
+        <h1 onClick={handleClearImage} className="clear-button">Clear</h1>
+      </div>
     );
   };
   
