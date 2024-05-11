@@ -34,3 +34,9 @@
     right: 0;
 }
 
+.fa-solid { 
+    position: absolute;
+    right: 20px;
+    color: #333;
+    font-size: 24px;
+}
