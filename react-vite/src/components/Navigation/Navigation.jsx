@@ -1,7 +1,6 @@
 import { NavLink,useNavigate } from "react-router-dom";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css";
-import AudioHook from "../AudioHook";
 import DisplayImage from "../DisplayImage";
 
 
@@ -21,9 +20,7 @@ const goBack = () => {
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
-      <div>
-        <AudioHook />
-      </div>
+   
 
       <div>
       <i className="fa-solid fa-arrow-left" onClick={goBack}></i>
