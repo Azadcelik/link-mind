@@ -28,7 +28,6 @@ const DisplayImage = () => {
           <p>{img.name} </p>
           </div>
         ))}
-      <i className="fa-solid fa-text-slash" onClick={handleClearImage}></i>
       </div>
     );
   };
