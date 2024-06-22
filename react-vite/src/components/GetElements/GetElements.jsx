@@ -57,6 +57,15 @@ const handleClick = async (id) => {
 
 
 
+const readAloud = (text) => { 
+
+    const synth  = window.speechSynthesis;
+    const utterance = new SpeechSynthesisUtterance(text)
+    synth.speak(utterance)
+}
+
+
+
     return (
 
         <div className="element-container">
@@ -66,7 +75,7 @@ const handleClick = async (id) => {
             {element.map(ele => (
                 ele.category_id == categId && (
                     <div className="element-box" key={ele.id} onMouseDown={() => handleMouseDown(ele.id)} onMouseUp={handleMouseUp} onClick={() => handleClick(ele.id)}>
-                        <img src={ele.element_image} alt={ele.name}/>
+                        <img src={ele.element_image} alt={ele.name} onClick={() => readAloud(ele.name)}/>
                         <p>{ele.name}</p>
                     </div>
                 )
