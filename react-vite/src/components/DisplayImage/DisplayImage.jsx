@@ -20,7 +20,9 @@ const DisplayImage = () => {
 
     const image = useSelector(state => state.elementImage)
     const images = Object.values(image)
+
     return (
+      <>
       <div className="imge-container">
         {images.map((img,index) => (
           <div className="imge-wrapper">
@@ -29,6 +31,8 @@ const DisplayImage = () => {
           </div>
         ))}
       </div>
+      <i className="fa-solid fa-trash" id="hey" onClick={handleClearImage}></i>
+      </>
     );
   };
   

@@ -23,7 +23,7 @@ const goBack = () => {
    
 
       <div>
-      <i className="fa-solid fa-arrow-left" onClick={goBack}></i>
+      <i className="fa-solid fa-arrow-left" onClick={goBack} id="arrow"></i>
       </div>
       <li>
         <ProfileButton />
