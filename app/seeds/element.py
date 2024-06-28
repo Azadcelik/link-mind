@@ -76,8 +76,56 @@ def seed_element():
         element_image = "https://link-mind.s3.amazonaws.com/usd-67411_1280.jpg",
         created_at = date.today()
     )
-
-    db.session.add_all([element_1,element_2,element_3,element_4,element_5,element_6,element_7,element_8,element_9,element_10])
+    element_11 = Element(
+        id = 11,
+        category_id = 2,
+        name = "Cola",
+        element_image = "https://link-mind.s3.amazonaws.com/drink-462776_1280.jpg",
+        created_at = date.today()
+    )
+    element_12 = Element(
+        id = 12,
+        category_id = 2,
+        name = "Water",
+        element_image = "https://link-mind.s3.amazonaws.com/water-2105213_1280.jpg",
+        created_at = date.today()
+    )   
+    element_13 = Element(
+        id = 13,
+        category_id = 2,
+        name = "Milk",
+        element_image = "https://link-mind.s3.amazonaws.com/milk-220496_1280.jpg",
+        created_at = date.today()
+    )    
+    element_14 = Element(
+        id = 14,
+        category_id = 2,
+        name = "Coffee",
+        element_image = "https://link-mind.s3.amazonaws.com/coffe-2991458_1280.jpg",
+        created_at = date.today()
+    )    
+    element_15 = Element(
+        id = 15,
+        category_id = 2,
+        name = "Lemonade",
+        element_image = "https://link-mind.s3.amazonaws.com/lemonade-3571083_1280.jpg",
+        created_at = date.today()
+    )    
+    element_16 = Element(
+        id = 16,
+        category_id = 2,
+        name = "Tea",
+        element_image = "https://link-mind.s3.amazonaws.com/beverage-1869722_1280.jpg",
+        created_at = date.today()
+    )    
+    element_17 = Element(
+        id = 17,
+        category_id = 2,
+        name = "Smoothie",
+        element_image = "https://link-mind.s3.amazonaws.com/fruit-juice-2443495_1280.jpg",
+        created_at = date.today()
+    )
+    db.session.add_all([element_1,element_2,element_3,element_4,element_5,element_6,element_7,element_8,element_9,element_10,element_11,element_12,element_13,element_14,element_15,element_16,element_17])
     db.session.commit()
 
 
