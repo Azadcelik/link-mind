@@ -125,7 +125,51 @@ def seed_element():
         element_image = "https://link-mind.s3.amazonaws.com/fruit-juice-2443495_1280.jpg",
         created_at = date.today()
     )
-    db.session.add_all([element_1,element_2,element_3,element_4,element_5,element_6,element_7,element_8,element_9,element_10,element_11,element_12,element_13,element_14,element_15,element_16,element_17])
+      
+    element_18 = Element(
+        id = 18,
+        category_id = 5,
+        name = "Green",
+        element_image = "https://link-mind.s3.amazonaws.com/meadow-196567_1280.jpg",
+        created_at = date.today()
+    )  
+    element_19 = Element(
+        id = 19,
+        category_id = 5,
+        name = "Red",
+        element_image = "https://link-mind.s3.amazonaws.com/red-1262572_1280.jpg",
+        created_at = date.today()
+    )  
+    element_20 = Element(
+        id = 20,
+        category_id = 5,
+        name = "Orange",
+        element_image = "https://link-mind.s3.amazonaws.com/orange-83011_1280.jpg",
+        created_at = date.today()
+    )  
+    element_21 = Element(
+        id = 21,
+        category_id = 5,
+        name = "Yellow",
+        element_image = "https://link-mind.s3.amazonaws.com/yellow-1845394_1280.jpg",
+        created_at = date.today()
+    )  
+    element_22 = Element(
+        id = 22,
+        category_id = 5,
+        name = "Blue",
+        element_image = "https://link-mind.s3.amazonaws.com/wood-1963988_1280.jpg",
+        created_at = date.today()
+    )  
+    element_23 = Element(
+        id = 23,
+        category_id = 5,
+        name = "Purple",
+        element_image = "https://link-mind.s3.amazonaws.com/texture-2104054_1280.jpg",
+        created_at = date.today()
+    )
+    db.session.add_all([element_1,element_2,element_3,element_4,element_5,element_6,element_7,element_8,element_9,element_10,element_11,element_12,element_13,element_14,element_15,element_16,element_17,
+                        element_18,element_19,element_20,element_21,element_22,element_23])
     db.session.commit()
 
 
