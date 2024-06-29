@@ -168,8 +168,51 @@ def seed_element():
         element_image = "https://link-mind.s3.amazonaws.com/texture-2104054_1280.jpg",
         created_at = date.today()
     )
+    element_24 = Element(
+        id = 24,
+        category_id = 6,
+        name = "Gardening",
+        element_image = "https://link-mind.s3.amazonaws.com/lawn-mower-384589_1280.jpg",
+        created_at = date.today()
+    )
+    element_25 = Element(
+        id = 25,
+        category_id = 6,
+        name = "Mopping Floor",
+        element_image = "https://link-mind.s3.amazonaws.com/girl-1531575_1280.jpg",
+        created_at = date.today()
+    )
+    element_26 = Element(
+        id = 26,
+        category_id = 6,
+        name = "Laundry",
+        element_image = "https://link-mind.s3.amazonaws.com/laundry-413688_1280.jpg",
+        created_at = date.today()
+    )
+    element_27 = Element(
+        id = 27,
+        category_id = 6,
+        name = "Folding clothes",
+        element_image = "https://link-mind.s3.amazonaws.com/jeans-428614_1280.jpg",
+        created_at = date.today()
+    )
+    element_28 = Element(
+        id = 28,
+        category_id = 6,
+        name = "Cooking",
+        element_image = "https://link-mind.s3.amazonaws.com/spaghetti-6639970_1280.jpg",
+        created_at = date.today()
+    )
+    element_29 = Element(
+        id = 29,
+        category_id = 6,
+        name = "Vacuum",
+        element_image = "https://link-mind.s3.amazonaws.com/vacuum-cleaner-268179_1280.jpg",
+        created_at = date.today()
+    )
+
     db.session.add_all([element_1,element_2,element_3,element_4,element_5,element_6,element_7,element_8,element_9,element_10,element_11,element_12,element_13,element_14,element_15,element_16,element_17,
-                        element_18,element_19,element_20,element_21,element_22,element_23])
+                        element_18,element_19,element_20,element_21,element_22,element_23,element_24,element_25,element_26,element_27,element_28,element_29])
     db.session.commit()
 
 
