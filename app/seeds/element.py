@@ -210,9 +210,46 @@ def seed_element():
         element_image = "https://link-mind.s3.amazonaws.com/vacuum-cleaner-268179_1280.jpg",
         created_at = date.today()
     )
+    element_30 = Element(
+        category_id = 7,
+        name = "Banana",
+        element_image = "https://link-mind.s3.amazonaws.com/banana-2449019_1280.jpg",
+        created_at = date.today()
+    )
+    element_31 = Element(
+        category_id = 7,
+        name = "Apple",
+        element_image = "https://link-mind.s3.amazonaws.com/harvest-7458975_1280.jpg",
+        created_at = date.today()
+    )
+    element_32= Element(
+        category_id = 7,
+        name = "Orange",
+        element_image = "https://link-mind.s3.amazonaws.com/oranges-15046_1280.jpg",
+        created_at = date.today()
+    )
+    element_33= Element(
+        category_id = 7,
+        name = "Strawberry",
+        element_image = "https://link-mind.s3.amazonaws.com/strawberry-7224875_1280.jpg",
+        created_at = date.today()
+    )
+    element_34 = Element(
+        category_id = 7,
+        name = "Blackberry",
+        element_image = "https://link-mind.s3.amazonaws.com/blackberry-1061734_1280.jpg",
+        created_at = date.today()
+    )
+    element_35 = Element(
+        category_id = 7,
+        name = "Blueberry",
+        element_image = "https://link-mind.s3.amazonaws.com/blueberries-5955833_1280.jpg",
+        created_at = date.today()
+    )
+    
 
     db.session.add_all([element_1,element_2,element_3,element_4,element_5,element_6,element_7,element_8,element_9,element_10,element_11,element_12,element_13,element_14,element_15,element_16,element_17,
-                        element_18,element_19,element_20,element_21,element_22,element_23,element_24,element_25,element_26,element_27,element_28,element_29])
+                        element_18,element_19,element_20,element_21,element_22,element_23,element_24,element_25,element_26,element_27,element_28,element_29,element_30,element_31,element_32,element_33,element_34,element_35])
     db.session.commit()
 
 
