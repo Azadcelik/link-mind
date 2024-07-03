@@ -37,8 +37,13 @@ def seed_category():
         name = "Household chores",
         category_image = "https://link-mind.s3.amazonaws.com/family-8806379_1280.jpg"
     )
+    seed_categories7 = Category(
+        user_id = 1,
+        name = "Fruits",
+        category_image = "https://link-mind.s3.amazonaws.com/breakfast-4234047_1280.jpg"
+    )
 
-    db.session.add_all([seed_categories1,seed_categories2,seed_categories3,seed_categories4,seed_categories5,seed_categories6])
+    db.session.add_all([seed_categories1,seed_categories2,seed_categories3,seed_categories4,seed_categories5,seed_categories6,seed_categories7])
     db.session.commit()
 
 
