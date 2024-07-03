@@ -246,10 +246,47 @@ def seed_element():
         element_image = "https://link-mind.s3.amazonaws.com/blueberries-5955833_1280.jpg",
         created_at = date.today()
     )
+    element_36 = Element(
+        category_id = 8,
+        name = "Cat",
+        element_image = "https://link-mind.s3.amazonaws.com/european-shorthair-8601492_1280.jpg",
+        created_at = date.today()
+    )
+    element_37 = Element(
+        category_id = 8,
+        name = "Dog",
+        element_image = "https://link-mind.s3.amazonaws.com/dog-7758887_1280.jpg",
+        created_at = date.today()
+    )
+    element_38 = Element(
+        category_id = 8,
+        name = "Fish",
+        element_image = "https://link-mind.s3.amazonaws.com/fish-5917864_1280.jpg",
+        created_at = date.today()
+    )
+    element_39 = Element(
+        category_id = 8,
+        name = "Giraffe",
+        element_image = "https://link-mind.s3.amazonaws.com/giraffe-6378717_1280.jpg",
+        created_at = date.today()
+    )
+    element_40 = Element(
+        category_id = 8,
+        name = "Bird",
+        element_image = "https://link-mind.s3.amazonaws.com/pied-flycatcher-8062744_1280.jpg",
+        created_at = date.today()
+    )
+    element_41 = Element(
+        category_id = 8,
+        name = "Elephant",
+        element_image = "https://link-mind.s3.amazonaws.com/elephant-114543_1280.jpg",
+        created_at = date.today()
+    )
     
 
     db.session.add_all([element_1,element_2,element_3,element_4,element_5,element_6,element_7,element_8,element_9,element_10,element_11,element_12,element_13,element_14,element_15,element_16,element_17,
-                        element_18,element_19,element_20,element_21,element_22,element_23,element_24,element_25,element_26,element_27,element_28,element_29,element_30,element_31,element_32,element_33,element_34,element_35])
+                        element_18,element_19,element_20,element_21,element_22,element_23,element_24,element_25,element_26,element_27,element_28,element_29,element_30,element_31,element_32,element_33,element_34,element_35,
+                        element_36,element_37,element_38,element_39,element_40,element_41])
     db.session.commit()
 
 
