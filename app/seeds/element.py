@@ -282,11 +282,41 @@ def seed_element():
         element_image = "https://link-mind.s3.amazonaws.com/elephant-114543_1280.jpg",
         created_at = date.today()
     )
+    element_42 = Element(
+        category_id = 9,
+        name = "Cloudy",
+        element_image = "https://link-mind.s3.amazonaws.com/clouds-8029036_1280.jpg",
+        created_at = date.today()
+    )
+    element_43 = Element(
+        category_id = 9,
+        name = "Sunny",
+        element_image = "https://link-mind.s3.amazonaws.com/clouds-1117584_1280.jpg",
+        created_at = date.today()
+    )
+    element_44 = Element(
+        category_id = 9,
+        name = "Rainy",
+        element_image = "https://link-mind.s3.amazonaws.com/rain-275317_1280.jpg",
+        created_at = date.today()
+    )
+    element_45 = Element(
+        category_id = 9,
+        name = "Snowy",
+        element_image = "https://link-mind.s3.amazonaws.com/trees-1861704_1280.jpg",
+        created_at = date.today()
+    )
+    element_46 = Element(
+        category_id = 9,
+        name = "Windy",
+        element_image = "https://link-mind.s3.amazonaws.com/palm-trees-4293013_1280.jpg",
+        created_at = date.today()
+    )
     
 
     db.session.add_all([element_1,element_2,element_3,element_4,element_5,element_6,element_7,element_8,element_9,element_10,element_11,element_12,element_13,element_14,element_15,element_16,element_17,
                         element_18,element_19,element_20,element_21,element_22,element_23,element_24,element_25,element_26,element_27,element_28,element_29,element_30,element_31,element_32,element_33,element_34,element_35,
-                        element_36,element_37,element_38,element_39,element_40,element_41])
+                        element_36,element_37,element_38,element_39,element_40,element_4,element_42,element_43,element_44,element_45,element_46])
     db.session.commit()
 
 
