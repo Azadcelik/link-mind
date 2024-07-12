@@ -56,11 +56,15 @@ def seed_category():
         user_id = 1,
         name = "Play",
         category_image = "https://link-mind.s3.amazonaws.com/gettyimages-200199027-001_wide-548eb42c5ebbd6b8f5ca6161b70e911cb108174e.jpg"
-
     )
 
+    seed_categories11 = Category (
+        user_id = 1,
+        name = "I want to",
+        category_image = "https://link-mind.s3.amazonaws.com/I+want+to+.png" )
+
     db.session.add_all([seed_categories1,seed_categories2,seed_categories3,seed_categories4,seed_categories5,seed_categories6,seed_categories7,seed_categories8,
-                        seed_categories9,seed_categories10])
+                        seed_categories9,seed_categories10,seed_categories11])
     db.session.commit()
 
 
