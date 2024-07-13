@@ -1,6 +1,6 @@
 
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState,useContext } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
 import { categoryThunk } from '../../redux/category'
 import './GetCategory.css'
@@ -8,10 +8,13 @@ import CreateCategory from '../CreateCategory/CreateCategory'
 import { useModal } from '../../context/Modal'
 import UpdateCategory from '../UpdateCategory'
 import { useNavigate } from 'react-router-dom'
-
-
+import { EleIdContext } from '../EleId/Eleid'
+import { createImageAction } from '../../redux/elementImage'
 const GetCategory = () => {
     
+const {elementImageId,setElementImageId} = useContext(EleIdContext)
+
+
     const  {setModalContent} = useModal()
     const [timer,setTimer] = useState(null)
 
@@ -22,12 +25,22 @@ const categories = useSelector(state => (state.categories))
 console.log('categories in get use selector',categories)
 const category = Object.values(categories)
 
-const readAloud = (text) => { 
+const readAloud = async (text,id) => { 
+    const categoryImage = categories[id]
+    console.log('let is see catgory image',categoryImage)
+    if (categoryImage.name == "I want to") { 
+        categoryImage.element_image = categoryImage.category_image
+        await dispatch(createImageAction(categoryImage,elementImageId))
+        setElementImageId(prev  => prev + 1)
+    }
 
     const synth  = window.speechSynthesis;
     const utterance = new SpeechSynthesisUtterance(text)
     synth.speak(utterance)
 }
+
+
+
 
 
 useEffect(() => {
@@ -62,8 +75,8 @@ return (
     <div className="category-container">
         <button className="add-category-btn" onClick={displayModal}>+</button>
         {category.map(categ => (
-            <div className="category-box" key={categ.id} onMouseDown={() => handleMouseDown(categ.id)} onMouseUp={handleMouseUp} onClick={() => navigateCategory(categ.id)}>
-                <img src={categ.category_image} alt={categ.name} onClick={() => readAloud(categ.name)} />
+            <div className="category-box" key={categ.id} onMouseDown={() => handleMouseDown(categ.id)} onMouseUp={handleMouseUp} onClick={() => categ.name !== "I want to" ? navigateCategory(categ.id) : null}>
+                <img src={categ.category_image} alt={categ.name} onClick={() => readAloud(categ.name,categ.id)} />
                 <p>{categ.name}</p>
             </div>
         ))}

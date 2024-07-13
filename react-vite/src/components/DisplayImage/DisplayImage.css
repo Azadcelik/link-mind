@@ -39,5 +39,15 @@
     font-size: 3em;
     position: absolute;
     margin-top: 120px;
-    margin-right: 50px;
+    margin-right: 80px;
+}
+
+#heyya { 
+    color: gray;
+    position: absolute;
+    font-size: 3em;
+    position: absolute;
+    margin-top: -95px;
+    margin-left : 1320px;
+
 }

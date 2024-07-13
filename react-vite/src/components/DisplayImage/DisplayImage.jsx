@@ -11,15 +11,29 @@ const DisplayImage = () => {
    const {setElementImageId} = useContext(EleIdContext)
  
     const dispatch = useDispatch()
-
+    
 
     const handleClearImage = async () => { 
       await dispatch(clearImage())
       setElementImageId(0)
     }
 
+  
     const image = useSelector(state => state.elementImage)
     const images = Object.values(image)
+    console.log("thisis images in disolay image", images)
+    
+
+    const handleSpeaker = () => { 
+      
+      const synth  = window.speechSynthesis;
+      images.map ((img)=>  { 
+        const utterance = new SpeechSynthesisUtterance(img.name)
+        synth.speak(utterance)
+
+      })
+  }
+
 
     return (
       <>
@@ -31,7 +45,10 @@ const DisplayImage = () => {
           </div>
         ))}
       </div>
+      <div className="speaker-trash">
+      <i className="fa-solid fa-volume-high" id="heyya" onClick={handleSpeaker}></i>
       <i className="fa-solid fa-trash" id="hey" onClick={handleClearImage}></i>
+      </div>
       </>
     );
   };
