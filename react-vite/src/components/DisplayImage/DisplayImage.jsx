@@ -29,6 +29,7 @@ const DisplayImage = () => {
       const synth  = window.speechSynthesis;
       images.map ((img)=>  { 
         const utterance = new SpeechSynthesisUtterance(img.name)
+        utterance.pitch = 1
         synth.speak(utterance)
 
       })
