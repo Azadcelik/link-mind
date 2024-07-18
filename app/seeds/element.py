@@ -342,11 +342,166 @@ def seed_element():
         element_image = "https://link-mind.s3.amazonaws.com/hit-1407826_1280.jpg",
         created_at = date.today()
     )
+    element_52 = Element(
+        category_id = 13,
+        name = "go",
+        element_image = "https://link-mind.s3.amazonaws.com/images.jpeg",
+        created_at = date.today()
+    )
+    element_53 = Element(
+        category_id = 13,
+        name = "walk",
+        element_image = "https://link-mind.s3.amazonaws.com/mountains-8497575_1280.jpg",
+        created_at = date.today()
+    )
+    element_54 = Element(
+        category_id = 13,
+        name = "eat",
+        element_image = "https://link-mind.s3.amazonaws.com/fork-207410_1280.jpg",
+        created_at = date.today()
+    )
+    element_55 = Element(
+        category_id = 13,
+        name = "run",
+        element_image = "https://link-mind.s3.amazonaws.com/man-8293794_1280.jpg",
+        created_at = date.today()
+    )
+    element_56 = Element(
+        category_id = 13,
+        name = "drink",
+        element_image = "https://link-mind.s3.amazonaws.com/beautiful-1867178_1280.jpg",
+        created_at = date.today()
+    )
+    element_57 = Element(
+        category_id = 13,
+        name = "sleep",
+        element_image = "https://link-mind.s3.amazonaws.com/dog-6934895_1280.jpg",
+        created_at = date.today()
+    )
+    element_58 = Element(
+        category_id = 13,
+        name = "play",
+        element_image = "https://link-mind.s3.amazonaws.com/child-3281615_1280.jpg",
+        created_at = date.today()
+    )
+    element_59 = Element(
+        category_id = 13,
+        name = "cook",
+        element_image = "https://link-mind.s3.amazonaws.com/vegetables-7438072_1280.jpg",
+        created_at = date.today()
+    )
+    element_60 = Element(
+        category_id = 13,
+        name = "dance",
+        element_image = "https://link-mind.s3.amazonaws.com/people-7001880_1280.jpg",
+        created_at = date.today()
+    )
+    element_61 = Element(
+        category_id = 14,
+        name = "on",
+        element_image = "https://link-mind.s3.amazonaws.com/prepositions+(1).jpg",
+        created_at = date.today()
+    )
+    element_62 = Element(
+        category_id = 14,
+        name = "in",
+        element_image = "https://link-mind.s3.amazonaws.com/prepositions.jpg",
+        created_at = date.today()
+    )
+    element_63 = Element(
+        category_id = 14,
+        name = "under",
+        element_image = "https://link-mind.s3.amazonaws.com/prepositions+(2).jpg",
+        created_at = date.today()
+    )
+    element_64 = Element(
+        category_id = 14,
+        name = "next to",
+        element_image = "https://link-mind.s3.amazonaws.com/prepositions+(3).jpg",
+        created_at = date.today()
+    )
+    element_65 = Element(
+        category_id = 14,
+        name = "behind",
+        element_image = "https://link-mind.s3.amazonaws.com/prepositions+(4).jpg",
+        created_at = date.today()
+    )
+    element_66 = Element(
+        category_id = 14,
+        name = "in front of",
+        element_image = "https://link-mind.s3.amazonaws.com/prepositions+(5).jpg",
+        created_at = date.today()
+    )
+    element_67 = Element(
+        category_id = 14,
+        name = "between",
+        element_image = "https://link-mind.s3.amazonaws.com/prepositions+(6).jpg",
+        created_at = date.today()
+    )
+    element_68 = Element(
+        category_id = 14,
+        name = "to",
+        element_image = "https://link-mind.s3.amazonaws.com/to+images.jpg",
+        created_at = date.today()
+    )
+    element_69 = Element(
+        category_id = 15,
+        name = "shopping mall",
+        element_image = "https://link-mind.s3.amazonaws.com/stairs-906723_1280.jpg",
+        created_at = date.today()
+    )
+    element_70 = Element(
+        category_id = 15,
+        name = "school",
+        element_image = "https://link-mind.s3.amazonaws.com/education-3189934_1280.jpg",
+        created_at = date.today()
+    )
+    element_71 = Element(
+        category_id = 15,
+        name = "theatre",
+        element_image = "https://link-mind.s3.amazonaws.com/enactment-258631_1280.jpg",
+        created_at = date.today()
+    )
+    element_72 = Element(
+        category_id = 15,
+        name = "home",
+        element_image = "https://link-mind.s3.amazonaws.com/house-1836070_1280.jpg",
+        created_at = date.today()
+    )
+    element_73 = Element(
+        category_id = 15,
+        name = "museum",
+        element_image = "https://link-mind.s3.amazonaws.com/st-petersburg-97166_1280.jpg",
+        created_at = date.today()
+    )
+    element_74 = Element(
+        category_id = 15,
+        name = "hospital",
+        element_image = "https://link-mind.s3.amazonaws.com/hospital-8352776_1280.jpg",
+        created_at = date.today()
+    )
+    element_75 = Element(
+        category_id = 15,
+        name = "outside",
+        element_image = "https://link-mind.s3.amazonaws.com/legs-2635038_1280.jpg",
+        created_at = date.today()
+    )
+    element_76 = Element(
+        category_id = 15,
+        name = "library",
+        element_image = "https://link-mind.s3.amazonaws.com/library-488690_1280.jpg",
+        created_at = date.today()
+    )
+
+
+
     
 
     db.session.add_all([element_1,element_2,element_3,element_4,element_5,element_6,element_7,element_8,element_9,element_10,element_11,element_12,element_13,element_14,element_15,element_16,element_17,
                         element_18,element_19,element_20,element_21,element_22,element_23,element_24,element_25,element_26,element_27,element_28,element_29,element_30,element_31,element_32,element_33,element_34,element_35,
-                        element_36,element_37,element_38,element_39,element_40,element_4,element_42,element_43,element_44,element_45,element_46,element_47,element_48,element_49,element_50,element_51])
+                        element_36,element_37,element_38,element_39,element_40,element_4,element_42,element_43,element_44,element_45,element_46,element_47,element_48,element_49,element_50,element_51,
+                        element_52,element_53,element_54,element_55,element_56,element_57,element_58,element_59,element_60,element_61,element_61,element_63,element_64,element_65,element_66,element_67,element_68,
+                        element_69,element_70,element_71,element_72,element_73,element_74,element_75,element_76])
     db.session.commit()
 
 
