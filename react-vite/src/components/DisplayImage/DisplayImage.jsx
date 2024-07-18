@@ -27,12 +27,16 @@ const DisplayImage = () => {
     const handleSpeaker = () => { 
       
       const synth  = window.speechSynthesis;
+      let speakerArr = []
       images.map ((img)=>  { 
-        const utterance = new SpeechSynthesisUtterance(img.name)
-        utterance.pitch = 1
-        synth.speak(utterance)
+        speakerArr.push(img.name)
+       
 
       })
+      const speakerSentence = speakerArr.join(" ")
+      const utterance = new SpeechSynthesisUtterance(speakerSentence)
+      utterance.rate = 0.8
+      synth.speak(utterance)
   }
 
 

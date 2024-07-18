@@ -28,7 +28,7 @@ const category = Object.values(categories)
 const readAloud = async (text,id) => { 
     const categoryImage = categories[id]
     console.log('let is see catgory image',categoryImage)
-    if (["want","to","go","i"].includes(categoryImage.name)) { 
+    if (["want","to","go","I"].includes(categoryImage.name)) { 
         categoryImage.element_image = categoryImage.category_image
         await dispatch(createImageAction(categoryImage,elementImageId))
         setElementImageId(prev  => prev + 1)
@@ -36,6 +36,7 @@ const readAloud = async (text,id) => {
 
     const synth  = window.speechSynthesis;
     const utterance = new SpeechSynthesisUtterance(text)
+    if (utterance.text === "I") utterance.text = "i"
     synth.speak(utterance)
 }
 
@@ -75,7 +76,7 @@ return (
     <div className="category-container">
         <button className="add-category-btn" onClick={displayModal}>+</button>
         {category.map(categ => (
-            <div className="category-box" key={categ.id} onMouseDown={() => handleMouseDown(categ.id)} onMouseUp={handleMouseUp} onClick={() => !(["want","i","go","to"].includes(categ.name))? navigateCategory(categ.id) : null}>
+            <div className="category-box" key={categ.id} onMouseDown={() => handleMouseDown(categ.id)} onMouseUp={handleMouseUp} onClick={() => !(["want","I","go","to"].includes(categ.name))? navigateCategory(categ.id) : null}>
                 <img src={categ.category_image} alt={categ.name} onClick={() => readAloud(categ.name,categ.id)} />
                 <p>{categ.name}</p>
             </div>
