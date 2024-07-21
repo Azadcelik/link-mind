@@ -41,7 +41,10 @@ const DisplayImage = () => {
 
 
     return (
-      <>
+      <div className="top-page">
+        <div>
+      <i className="fa-solid fa-volume-high" id="displaying-image" onClick={handleSpeaker}></i>
+      </div>
       <div className="imge-container">
         {images.map((img,index) => (
           <div className="imge-wrapper">
@@ -50,11 +53,10 @@ const DisplayImage = () => {
           </div>
         ))}
       </div>
-      <div className="speaker-trash">
-      <i className="fa-solid fa-volume-high" id="heyya" onClick={handleSpeaker}></i>
-      <i className="fa-solid fa-trash" id="hey" onClick={handleClearImage}></i>
+      <div>
+      <i class="fa-solid fa-delete-left" id="displaying-image" onClick={handleClearImage}></i>
       </div>
-      </>
+      </div>
     );
   };
   

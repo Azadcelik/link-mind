@@ -29,25 +29,13 @@
     border-radius: 40px;
 }
 
-.clear-button { 
-    position: absolute;
-    right: 0;
+.top-page { 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: -10px;    
 }
 
-#hey { 
-    color: gray;
-    font-size: 3em;
-    position: absolute;
-    margin-top: 120px;
-    margin-right: 80px;
-}
-
-#heyya { 
-    color: gray;
-    position: absolute;
-    font-size: 3em;
-    position: absolute;
-    margin-top: -95px;
-    margin-left : 1320px;
-
+#displaying-image { 
+    font-size: 2em;
 }
