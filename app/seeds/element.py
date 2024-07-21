@@ -441,7 +441,7 @@ def seed_element():
     element_68 = Element(
         category_id = 14,
         name = "to",
-        element_image = "https://link-mind.s3.amazonaws.com/to+images.jpg",
+        element_image = "https://link-mind.s3.amazonaws.com/to+prepositions.jpg",
         created_at = date.today()
     )
     element_69 = Element(
