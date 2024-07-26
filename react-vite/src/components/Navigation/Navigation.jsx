@@ -17,17 +17,16 @@ const goBack = () => {
 
   return (
     <ul>
-      <li>
+      {/* <li>
         <NavLink to="/">Home</NavLink>
-      </li>
-   
-
+      </li> */}
+      
       <div>
       <i className="fa-solid fa-arrow-left" onClick={goBack} id="arrow"></i>
       </div>
-      <li>
+      <div>
         <ProfileButton />
-      </li>
+      </div>
       <div>
         <DisplayImage />
       </div>

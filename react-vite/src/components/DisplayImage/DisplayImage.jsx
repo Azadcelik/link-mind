@@ -54,7 +54,7 @@ const DisplayImage = () => {
         ))}
       </div>
       <div>
-      <i class="fa-solid fa-delete-left" id="displaying-image" onClick={handleClearImage}></i>
+      <i className="fa-solid fa-delete-left" id="displaying-image" onClick={handleClearImage}></i>
       </div>
       </div>
     );

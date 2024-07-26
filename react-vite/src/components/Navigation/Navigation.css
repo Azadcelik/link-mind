@@ -5,6 +5,79 @@
 
 #arrow { 
   font-size: 30px;
-  margin-top: 10px;
+  margin-top: 120px;
   margin-bottom: 10px;
+
 }
+
+
+
+
+.profile-but {
+  position: absolute; 
+  top: 20px; 
+  left: 20px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px; 
+  height: 50px; 
+  border-radius: 50%; 
+  background-color: #f0f0f0; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.profile-but button {
+  background: none;
+  border: none;
+  font-size: 24px; /* Adjust the icon size */
+  color: #333; /* Icon color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.profile-but button:hover {
+  background-color: #e0e0e0; /* Change on hover */
+}
+
+.profile-dropdown {
+  text-decoration: none;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  margin-left: 90px;
+  margin-top: 90px;
+  white-space: nowrap;
+}
+
+.profile-dropdown li {
+  padding: 5px 10px;
+  cursor: pointer;
+  list-style: none;
+  
+}
+
+.profile-dropdown li:hover {
+  background-color: #f0f0f0;
+  list-style: none;
+
+}
+
+.profile-dropdown button {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.profile-dropdown button:hover {
+  text-decoration: underline;
+}
+
+
