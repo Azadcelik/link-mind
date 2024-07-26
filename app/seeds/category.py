@@ -20,7 +20,7 @@ def seed_category():
     seed_categories3 = Category(
         user_id = 1,
         name = "Watch",
-        category_image = "https://link-mind.s3.amazonaws.com/television-5017870_1280.jpg"
+        category_image = "https://link-mind.s3.amazonaws.com/tv-set-4308537_1280.jpg"
     )
     seed_categories4 = Category(
         user_id = 1,
