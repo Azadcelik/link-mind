@@ -60,7 +60,7 @@ def seed_category():
 
     seed_categories11 = Category (
         user_id = 1,
-        name = "want",
+        name = "want to",
         category_image = "https://link-mind.s3.amazonaws.com/I+want+to+.png" )
     
     seed_categories12 = Category (
