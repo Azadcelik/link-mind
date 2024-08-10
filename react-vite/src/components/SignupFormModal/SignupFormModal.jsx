@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { thunkSignup } from "../../redux/session";
 import "./SignupForm.css";
-
+import {useNavigate} from 'react-router-dom'
 function SignupFormModal() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
@@ -12,7 +12,7 @@ function SignupFormModal() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState({});
   const { closeModal } = useModal();
-
+  const navigate =  useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -34,12 +34,13 @@ function SignupFormModal() {
     if (serverResponse) {
       setErrors(serverResponse);
     } else {
+      navigate('/category')
       closeModal();
     }
   };
 
   return (
-    <>
+    <div className="main-signup">
       <h1>Sign Up</h1>
       {errors.server && <p>{errors.server}</p>}
       <form onSubmit={handleSubmit}>
@@ -52,7 +53,7 @@ function SignupFormModal() {
             required
           />
         </label>
-        {errors.email && <p>{errors.email}</p>}
+        {errors.email && <p className="error-email">{errors.email}</p>}
         <label>
           Username
           <input
@@ -62,7 +63,7 @@ function SignupFormModal() {
             required
           />
         </label>
-        {errors.username && <p>{errors.username}</p>}
+        {errors.username && <p className="error-username">{errors.username}</p>}
         <label>
           Password
           <input
@@ -72,7 +73,7 @@ function SignupFormModal() {
             required
           />
         </label>
-        {errors.password && <p>{errors.password}</p>}
+        {errors.password && <p className="error-password">{errors.password}</p>}
         <label>
           Confirm Password
           <input
@@ -82,10 +83,10 @@ function SignupFormModal() {
             required
           />
         </label>
-        {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
+        {errors.confirmPassword && <p className="error-confirmpassword">{errors.confirmPassword}</p>}
         <button type="submit">Sign Up</button>
       </form>
-    </>
+    </div>
   );
 }
 
