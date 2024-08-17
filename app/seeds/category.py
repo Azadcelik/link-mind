@@ -83,8 +83,13 @@ def seed_category():
         name = "places",
         category_image = "https://link-mind.s3.amazonaws.com/beautiful-places-world-1200x900.webp"
     )
+    seed_categories16 = Category(
+        user_id = 1,
+        name = "transportation",
+        category_image = "https://link-mind.s3.amazonaws.com/transportations-2-min.png"
+    )
     db.session.add_all([seed_categories1,seed_categories2,seed_categories3,seed_categories4,seed_categories5,seed_categories6,seed_categories7,seed_categories8,
-                        seed_categories9,seed_categories10,seed_categories11,seed_categories12,seed_categories13,seed_categories14,seed_categories15])
+                        seed_categories9,seed_categories10,seed_categories11,seed_categories12,seed_categories13,seed_categories14,seed_categories15,seed_categories16])
     db.session.commit()
 
 
