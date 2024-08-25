@@ -60,7 +60,7 @@ const handleMouseDown = (id) => {
 
     const newTimer = setTimeout(() => {
     setModalContent(<UpdateCategory categId = {id} />)
-    }, 1000);
+    }, 1500);
     setTimer(newTimer)
 }
 
