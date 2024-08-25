@@ -35,7 +35,7 @@ useEffect(() => {
 const handleMouseDown = (id) => { 
     const newTimer = setTimeout(() => {
     setModalContent(<UpdateElement elementId={id} />)
-    }, 1000);
+    }, 1500);
     setTimer(newTimer)
 }
 
