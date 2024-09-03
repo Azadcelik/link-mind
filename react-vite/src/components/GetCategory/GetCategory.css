@@ -11,9 +11,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 3px solid #8ecae6; 
+  border: 3px solid rgb(101, 67, 33); 
   border-radius: 10px;
   height: 250px;  
+  background-color: transparent;
 }
 
 .category-box img {
@@ -28,14 +29,14 @@
   text-align: center;
   font-family: 'Comic Sans MS', 'Arial', sans-serif; 
   font-size: 1.2em; 
-  color: #60c1ef;
+  color: rgb(101, 67, 33);
 }
 
 .add-category-btn {
   position: absolute;
   top: 30px; 
   right: 10px; 
-  background-color: #60c1ef;
+  background-color:  rgb(101, 67, 33);
   color: white; 
   border: none;
   border-radius: 50%; 
@@ -47,5 +48,5 @@
 }
 
 .add-category-btn:hover {
-  background-color: #22a7e5; 
+  background-color:  rgb(69, 46, 22); 
 }
