@@ -72,11 +72,22 @@ const  navigateCategory = (categId) =>  {
     navigate(`${categId}`)
 }
 
+
+const getActionsId = () => { 
+    const wantsId = category.find(categ => categ.name == "Actions")
+    return  wantsId.id
+}
+
 return (
     <div className="category-container">
         <button className="add-category-btn" onClick={displayModal}>+</button>
         {category.map(categ => (
-            <div className="category-box" key={categ.id} onMouseDown={() => handleMouseDown(categ.id)} onMouseUp={handleMouseUp} onClick={() => !(["want to","I","go","to"].includes(categ.name))? navigateCategory(categ.id) : null}>
+            <div className="category-box" key={categ.id} onMouseDown={() => handleMouseDown(categ.id)} onMouseUp={handleMouseUp} onClick={() => 
+            !(["want to","I","go","to"].includes(categ.name)) ?
+             navigateCategory(categ.id) 
+             : categ.name == "want to" ?
+             navigateCategory(getActionsId())
+             : null}>
                 <img src={categ.category_image} alt={categ.name} onClick={() => readAloud(categ.name,categ.id)} />
                 <p>{categ.name}</p>
             </div>
