@@ -1,3 +1,5 @@
+import { Dispatch } from "react"
+import { AnyAction } from "redux"
 
 
 const GET_CATEGORY = 'getCategory/link-mind'
@@ -6,13 +8,37 @@ const UPDATE_CATEGORY = 'updateCategory/link-mind'
 const DELETE_CATEGORY = 'deleteCategory/link-mind'
 
 
-const categoryAction = (categoryData) => {
+
+
+export interface CategoryType { 
+    id: number,
+    name: string,
+    category_image: string,
+    user_id: number
+}
+
+
+//here you are indexing to an object.This syntax is important to remember
+export interface CategoryStateType { 
+    [id: string]: CategoryType
+}
+
+
+interface CategoryActionType { 
+    type: string,
+    payload: CategoryType[] 
+}
+
+interface CategoryError { 
+    error: string;
+}
+
+const categoryAction = (categoryData: CategoryType[]): CategoryActionType => {
     return { 
         type: GET_CATEGORY,
         payload : categoryData
     }
 }
-
 
 
 
@@ -24,16 +50,18 @@ export function categoryThunk() {
             if (response.ok) {
                 const data = await response.json()
                 dispatch(categoryAction(data))
+                console.log("this is data from catefory thunjs m sadsadssdssad",data)
             }
 
             else { 
-                const data = response.json()
-                return data.error
+                const errorData: CategoryError = await response.json()
+                
+                return errorData.error
             }
 
         }catch(error){
             console.log(error.message)
-            return error
+            return error.message
         }
     }
 }
@@ -142,14 +170,15 @@ export function deleteCategoryThunk (categId) {
     }
 }
 
-const categoryReducer = (initialState = {},action) => { 
+const categoryReducer = (initialState: CategoryStateType = {},action:CategoryActionType) => { 
     switch(action.type) {
         case GET_CATEGORY: {
             const newState = {...initialState}
 
-            action.payload.forEach(category => { 
-                newState[category.id] = category
-            })
+        
+                action.payload.forEach(category => { 
+                    newState[category.id] = category
+                })
             
             return newState
         }
