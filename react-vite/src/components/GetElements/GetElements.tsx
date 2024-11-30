@@ -1,4 +1,5 @@
-import {useContext, useEffect, useState } from "react"
+import React from "react"
+import {ElementType, useContext, useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { elementThunk } from "../../redux/element"
 import { useNavigate, useParams } from "react-router-dom"
@@ -8,6 +9,8 @@ import CreateElement from "../CreateElement"
 import UpdateElement from "../UpdateElement"
 import { EleIdContext } from "../EleId/Eleid"
 import { createImageAction } from "../../redux/elementImage"
+import { ElementStateType,ElementTypes} from "../../redux/element"
+import { CategoryStateType, CategoryType } from "../../redux/category"
 
 
 const GetElements = () => { 
@@ -15,17 +18,20 @@ const GetElements = () => {
 
 const {elementImageId,setElementImageId} = useContext(EleIdContext)
  
-const [timer,setTimer] = useState(null)
+const [timer,setTimer] = useState<number | null>(null)
 const dispatch = useDispatch()
 const {categId} = useParams()
 const {setModalContent} = useModal()
 const navigate = useNavigate()
 
-const elements = useSelector(state => state.elements)
-const element = Object.values(elements)
+const elements: ElementStateType = useSelector((state: ElementStateType): ElementStateType => state.elements)
+console.log("typescrit element vlaies  before",elements)
 
-const categories = useSelector(state => (state.categories))
-const category = Object.values(categories)
+const element: ElementTypes[] = Object.values(elements)
+console.log("typescrit element vlaies",element)
+
+const categories = useSelector((state: CategoryStateType):CategoryType => (state.categories))
+const category: CategoryType[] = Object.values(categories)
 
 useEffect(() => {
     const getElements = async () => { 
@@ -43,7 +49,7 @@ const handleMouseDown = (id) => {
 }
 
 const handleMouseUp = () => { 
-    clearTimeout(timer)
+    if (timer !== null) clearTimeout(timer)
 }
 
 
@@ -52,7 +58,7 @@ const handleCreateElement = () => {
     
 }
 
-const handleClick = async (ele) => { 
+const handleClick = async (ele: ElementTypes) => { 
     const element = elements[ele.id]
     await dispatch(createImageAction(element,elementImageId))
     setElementImageId(prev  => prev + 1)
@@ -67,7 +73,7 @@ const handleClick = async (ele) => {
     };
 
 
-    const matchedCategory = category.find(categ => {
+    const matchedCategory: CategoryType | undefined = category.find(categ => {
         return categ.name == categoryMap[ele.name];
     });
 
@@ -79,7 +85,7 @@ const handleClick = async (ele) => {
 
 }
 
-const readAloud = (text) => { 
+const readAloud = (text: string) => { 
 
     const synth  = window.speechSynthesis;
     const utterance = new SpeechSynthesisUtterance(text)
@@ -93,8 +99,9 @@ const readAloud = (text) => {
                       
                     
             <button className="add-element-btn" onClick={handleCreateElement}>+</button>
-            {element.map(ele => (
-                ele.category_id == categId && (
+            {element.map((ele) => (
+                // ele.category_id == categId && 
+                (
                     <div className="element-box" key={ele.id} onMouseDown={() => handleMouseDown(ele.id)} onMouseUp={handleMouseUp} onClick={() => handleClick(ele)}>
                         <img src={ele.element_image} alt={ele.name} onClick={() => readAloud(ele.name)}/>
                         <p>{ele.name}</p>

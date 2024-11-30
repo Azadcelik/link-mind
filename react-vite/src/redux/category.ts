@@ -74,10 +74,13 @@ const createCategoryAction = (createCategoryData) => {
     }
 }
 
+export interface CreateType { 
+    name: string;
+    image: File ;
+}
 
 
-
-export function createCategoryThunk (createCategoryData) { 
+export function createCategoryThunk (createCategoryData: FormData) { 
     return async function(dispatch) { 
 
         try{
