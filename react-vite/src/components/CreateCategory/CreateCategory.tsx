@@ -6,6 +6,7 @@ import './CreateCategory.css'
 import { categoryThunk, createCategoryThunk } from "../../redux/category"
 import { CreateType } from "../../redux/category"
 
+
 const CreateCategory = () => { 
 
     const dispatch = useDispatch()
