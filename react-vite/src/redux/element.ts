@@ -3,7 +3,28 @@ const CREATE_ELEMENT = 'createElement/link-mind'
 const UPDATE_ELEMENT = 'updateElement/link-mind'
 const DELETE_ELEMENT = 'deleteElement/link-mind'
 
-const elementAction = (elementData) => { 
+
+export interface ElementTypes { 
+    category_id: number,
+    element_image: string,
+    id: number,
+    name: string
+}
+export interface ElementStateType {
+    [id: string]: ElementTypes
+}
+
+interface ElementActionType {
+    type: string,
+    payload: ElementStateType
+}
+
+
+interface ElementError { 
+    error: string
+}
+
+const elementAction = (elementData:ElementStateType): ElementActionType => { 
     return {
         type: GET_ELEMENT,
         payload: elementData
@@ -15,11 +36,12 @@ export function elementThunk() {
         try{
         const response = await fetch(`/api/element/`)
         if (response.ok) { 
-            const data = await response.json()
+            const data: ElementStateType = await response.json()
+            console.log("this is my element from fetch which i will write typescript",data)
             dispatch(elementAction(data))
         }
         else { 
-            const data = await response.json()
+            const data: ElementError = await response.json()
             return data.error
         }
 
@@ -32,14 +54,14 @@ export function elementThunk() {
 
 
 
-const createElementAction = (elementData) => {
+const createElementAction = (elementData:ElementTypes) => {
     return {
         type: CREATE_ELEMENT,
         payload: elementData
     }
 }
 
-export function createElementThunk (elementData,id) {
+export function createElementThunk (elementData,id: string | number) {
     return async function (dispatch) {
 
         try{ 
@@ -49,11 +71,12 @@ export function createElementThunk (elementData,id) {
             body: elementData
         })
         if (response.ok) { 
-            const data = await response.json()
+            const data: ElementTypes = await response.json()
+            console.log("this is for creating element data ",data)
             dispatch(createElementAction(data))
         }
         else { 
-            const data = await response.json()
+            const data:ElementError = await response.json()
             return data.error
         }
     } catch(error) { 

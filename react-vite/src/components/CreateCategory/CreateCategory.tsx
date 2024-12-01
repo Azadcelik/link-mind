@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react"
+import React from "react"
+import { useEffect, useState, } from "react"
 import { useDispatch } from "react-redux"
 import { useModal } from "../../context/Modal"
 import './CreateCategory.css'
 import { categoryThunk, createCategoryThunk } from "../../redux/category"
+import { CreateType } from "../../redux/category"
 
 
 const CreateCategory = () => { 
@@ -18,10 +20,17 @@ const CreateCategory = () => {
     
 
     useEffect(() =>  { 
-        const error = {}
+        interface validationError  { 
+            name?: string,
+            image?: string,
+        }
+
+        const error: validationError = {}
 
         if (name.length < 2) error.name = "Your name should be at least two character"
-        if (!image) error.image = "You should upload an image"
+        if (!image) {
+            error.image = "You should upload an image"
+         }
         setValidationError(error)
     },[name,image])
 
@@ -38,7 +47,12 @@ const CreateCategory = () => {
 
         const formData = new FormData()
         formData.append("name",name)
-        formData.append("category_image",image)
+        if (image) {
+            formData.append("category_image",image)
+        }
+        else { 
+            console.log("uploading an image is required")
+        }
         
         await dispatch(createCategoryThunk(formData))
         await dispatch(categoryThunk())
